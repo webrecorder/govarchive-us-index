@@ -13,5 +13,9 @@
     "@webrecorder/hickory": "^0.1.0",
     "astro": "^5.4.2",
     "tailwindcss": "^4.0.11"
+  },
+  "devDependencies": {
+    "prettier": "3.5.3",
+    "prettier-plugin-astro": "0.14.1"
   }
 }

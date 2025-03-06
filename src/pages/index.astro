@@ -1,13 +1,13 @@
 ---
-import BtrixCollection from '../components/BtrixCollection.astro';
-import Layout from '../layouts/Layout.astro';
+import BtrixCollection from "../components/BtrixCollection.astro";
+import Layout from "../layouts/Layout.astro";
 
-import { getCollection } from 'astro:content';
-const collections = await getCollection('collections');
+import { getCollection } from "astro:content";
+const collections = await getCollection("collections");
 ---
 
 <Layout>
-	<div class="grid grid-cols-6 *:max-w-32">
-	{collections.map(collection => <BtrixCollection {...collection.data} />)}
-	</div>
+  <div class="grid grid-cols-6 *:max-w-32">
+    {collections.map((collection) => <BtrixCollection {...collection.data} />)}
+  </div>
 </Layout>
