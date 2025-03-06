@@ -1,18 +1,10 @@
 ---
-type Props<Heading extends "h1" | "h2" | "h3" | "h4" | "h5" | "h6"> =
-  | {
-      headingLevel?: Heading;
-      name?: string;
-      src: ImageMetadata;
-      href: string;
-      caption?: string;
-    }
-  | {
-      headingLevel?: Heading;
-      endpoint?: string;
-      org: string;
-      collection: string;
-    };
+type Props = {
+  endpoint?: string;
+  org: string;
+  collection: string;
+  customUrl?: string | undefined;
+};
 
 // partial btrix collection
 type Collection = {
@@ -29,30 +21,27 @@ type Collection = {
 };
 
 const {
-  headingLevel: Heading = "h3",
   endpoint = "https://app.browsertrix.com/",
+  org,
+  collection,
+  customUrl,
 } = Astro.props;
 
-let { href, src, name, caption } = Astro.props;
+// fetch collection
+const res = await fetch(
+  `${endpoint}api/public/orgs/${org}/collections/${collection}`,
+);
+const coll = (await res.json()) as Collection;
 
-if (Astro.props.collection) {
-  const { org, collection } = Astro.props;
-  // fetch collection
-  const res = await fetch(
-    `${endpoint}api/public/orgs/${org}/collections/${collection}`,
-  );
-  const coll = (await res.json()) as Collection;
-
-  href = `${endpoint}explore/${org}/collections/${collection}`;
-  src = {
-    src: coll.thumbnail.path,
-    width: 640,
-    height: 360,
-    format: "jpeg",
-  };
-  name = coll.name;
-  caption = coll.caption;
-}
+const href = customUrl ?? `${endpoint}explore/${org}/collections/${collection}`;
+const src = {
+  src: coll.thumbnail.path,
+  width: 640,
+  height: 360,
+  format: "jpeg",
+};
+const name = coll.name;
+const caption = coll.caption;
 ---
 
 <a href={href} target="_blank" class="group">
@@ -65,13 +54,13 @@ if (Astro.props.collection) {
       alt=""
     />
   </div>
-  <Heading
-    class="text-base font-semibold leading-tight text-offWhite transition-colors group-hover:text-white"
+  <h3
+    class="text-base font-semibold leading-tight text-stone-600 transition-colors group-hover:text-stone-700"
   >
     {name}
-  </Heading>
+  </h3>
   <p
-    class="mt-1.5 text-pretty leading-relaxed text-cyan-100 transition-colors group-hover:text-white"
+    class="mt-1.5 text-pretty leading-relaxed text-stone-400 transition-colors group-hover:text-stone-600"
   >
     <slot>
       {caption}
