@@ -7,13 +7,13 @@
   --default-font-feature-settings: "ss04" off, "ss07" on, "ss08" on;
 
   --font-display: Konsole, "Inter Variable", system-ui, sans-serif;
-  --font-display--feature-settings: "wdth" 105, "wght" 650;
+  --font-display--font-variation-settings: "wdth" 105, "wght" 650;
 
   --font-display-wide: Konsole, "Inter Variable", system-ui, sans-serif;
-  --font-display-wide--feature-settings: "wdth" 115, "wght" 650;
+  --font-display-wide--font-variation-settings: "wdth" 115, "wght" 650;
 
-  --font-display--wider: Konsole, "Inter Variable", system-ui, sans-serif;
-  --font-display--wider--feature-settings: "wdth" 137;
+  --font-display-wider: Konsole, "Inter Variable", system-ui, sans-serif;
+  --font-display-wider--font-variation-settings: "wdth" 137;
 
   --default-mono-font-family:
     Recursive, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
