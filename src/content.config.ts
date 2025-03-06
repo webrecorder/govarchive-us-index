@@ -7,7 +7,7 @@ const archiveCollections = defineCollection({
     endpoint: z.string().endsWith("/").default("https://app.browsertrix.com/"),
     org: z.string(),
     collection: z.string(),
-    customUrl: z.string().url().optional(),
+    url: z.string().url().optional(),
   }),
 });
 

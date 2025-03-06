@@ -15,7 +15,7 @@
   --font-display-wider: Konsole, "Inter Variable", system-ui, sans-serif;
   --font-display-wider--font-variation-settings: "wdth" 137;
 
-  --default-mono-font-family:
+  --font-mono:
     Recursive, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", monospace;
 }

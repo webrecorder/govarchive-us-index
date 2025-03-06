@@ -1,9 +1,11 @@
 ---
+import { bytes, number } from "../helpers/format";
+
 type Props = {
   endpoint?: string;
   org: string;
   collection: string;
-  customUrl?: string | undefined;
+  url?: string | undefined;
 };
 
 // partial btrix collection
@@ -18,13 +20,15 @@ type Collection = {
     size: 0;
     mime: string;
   };
+  pageCount: number;
+  totalSize: number;
 };
 
 const {
   endpoint = "https://app.browsertrix.com/",
   org,
   collection,
-  customUrl,
+  url,
 } = Astro.props;
 
 // fetch collection
@@ -33,20 +37,24 @@ const res = await fetch(
 );
 const coll = (await res.json()) as Collection;
 
-const href = customUrl ?? `${endpoint}explore/${org}/collections/${collection}`;
+const href = url ?? `${endpoint}explore/${org}/collections/${collection}`;
 const src = {
   src: coll.thumbnail.path,
   width: 640,
   height: 360,
   format: "jpeg",
 };
-const name = coll.name;
-const caption = coll.caption;
+
+const { name, caption, pageCount, totalSize } = coll;
 ---
 
-<a href={href} target="_blank" class="group">
+<a
+  href={href}
+  target="_blank"
+  class="group -m-2 rounded-2xl bg-stone-50 p-2 pb-4 ring-1 ring-stone-100/0 transition hover:ring-stone-100"
+>
   <div
-    class="bg-slate-50 relative mb-4 rounded-lg shadow-lg shadow-cyan-700/10 ring-1 ring-stone-900/20 transition group-hover:-translate-y-0.5 group-hover:shadow-cyan-800/50 group-hover:ring-stone-800/20"
+    class="relative mb-4 rounded-lg bg-slate-50 shadow-lg ring-1 shadow-cyan-700/10 ring-stone-900/20 transition group-hover:shadow-cyan-800/20 group-hover:ring-stone-800/20"
   >
     <img
       class="aspect-video w-full rounded-lg object-cover"
@@ -54,13 +62,22 @@ const caption = coll.caption;
       alt=""
     />
   </div>
-  <h3
-    class="text-base font-semibold leading-tight text-stone-600 transition-colors group-hover:text-stone-700"
+  <h2
+    class="mx-2 text-base leading-tight font-semibold text-stone-700 transition-colors group-hover:text-stone-900"
   >
     {name}
-  </h3>
+  </h2>
   <p
-    class="mt-1.5 text-pretty leading-relaxed text-stone-400 transition-colors group-hover:text-stone-600"
+    class="mx-2 mt-1.5 flex gap-2 text-sm text-stone-600 group-hover:text-stone-800"
+  >
+    {number(pageCount)} pages <span
+      class="font-mono font-thin text-stone-300"
+      role="separator">/</span
+    >
+    {bytes(totalSize)}
+  </p>
+  <p
+    class="mx-2 mt-1.5 text-sm leading-relaxed text-pretty text-stone-400 transition-colors group-hover:text-stone-600"
   >
     <slot>
       {caption}

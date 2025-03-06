@@ -3,72 +3,79 @@ import BtrixCollection from "../components/BtrixCollection.astro";
 import Layout from "../layouts/Layout.astro";
 
 import WebrecorderLogo from "@webrecorder/hickory/icons/webrecorder-icon-color.svg";
+import WebrecorderLockup from "@webrecorder/hickory/icons/webrecorder-lockup-color.svg";
 import BrowsertrixLogo from "@webrecorder/hickory/icons/browsertrix-icon-color.svg";
 import AWPLogo from "@webrecorder/hickory/icons/archivewebpage-icon-color.svg";
 
 import { getCollection } from "astro:content";
+import { undefined } from "astro:schema";
 const collections = await getCollection("collections");
 ---
 
 <Layout>
-  <header
-    class="mx-2 my-8 inline-flex flex-col items-start gap-2 rounded-2xl bg-stone-50 p-4 pb-2.5 md:mx-12"
+  <div
+    class="mt-8 grid gap-8 px-8 md:mt-16 md:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:px-16"
   >
-    <h1 class="font-display-wider text-3xl font-bold uppercase">
-      US Web Archives
-    </h1>
-    <p class="text-sm leading-6 text-pretty text-stone-500">
-      Selected archives from the <a
-        class="border-b border-b-stone-200 font-semibold text-black"
-        href="https://app.browsertrix.com/explore/usgov-archive"
-        ><span class="inline-block">
-          <WebrecorderLogo
-            class="inline h-[1cap] overflow-visible align-baseline"
-            width={undefined}
-            height={undefined}
-            aria-label="Webrecorder logo"
-          /> Webrecorder</span
-        > US Government Web Archive</a
-      >.
-      <br />
-      Crawled with <a
-        class="border-b border-b-stone-200 font-semibold text-black"
-        href="https://webrecorder.net/browsertrix/"
-        ><span class="inline-block">
-          <BrowsertrixLogo
-            class="inline h-[1.1cap] overflow-visible align-baseline"
-            width={undefined}
-            height={undefined}
-            aria-label="Browsertrix logo"
-          />&nbsp;Browsertrix
-        </span></a
-      > and <a
-        class="border-b border-b-stone-200 font-semibold text-black"
-        href="https://webrecorder.net/browsertrix/"
-        ><span class="inline-block">
-          <AWPLogo
-            class="inline h-[1.1cap] overflow-visible align-baseline"
-            width={undefined}
-            height={undefined}
-            aria-label="Archive Webpage logo"
-          />&nbsp;Archive Webpage</span
-        ></a
-      >.
-      <br />In collaboration with the <a
-        class="border-b border-b-stone-200 font-semibold text-black"
-        href="https://eotarchive.org/">End of Term Web Archive</a
-      >.
-    </p>
-  </header>
-  <main class="p-4 md:px-16">
-    <div
-      class="mt-8 grid grid-cols-[repeat(auto-fill,minmax(min(320px,100%),1fr))]"
-    >
-      {
-        collections.map((collection) => (
-          <BtrixCollection {...collection.data} />
-        ))
-      }
+    <div class="col-start-1 -col-end-2 -m-2">
+      <header
+        class="flex flex-col items-start gap-2 rounded-2xl bg-stone-50 p-4 py-3 pt-4 text-sm leading-6 text-pretty text-stone-500 ring-1 ring-stone-100/0 transition has-[a[href]:hover]:ring-stone-100 md:inline-flex"
+      >
+        <h1>
+          Selected archives from the <a
+            class="border-b border-b-stone-200 font-semibold text-black transition-colors hover:border-b-stone-400"
+            href="https://app.browsertrix.com/explore/usgov-archive"
+            ><span class="inline-block">
+              <WebrecorderLogo
+                class="inline h-[1cap] overflow-visible align-baseline"
+                width={null}
+                height={null}
+                aria-label="Webrecorder logo"
+              /> Webrecorder</span
+            > US Government Web Archive</a
+          >
+        </h1>
+        <p>
+          Crawled with <a
+            class="border-b border-b-stone-200 font-semibold text-black transition-colors hover:border-b-stone-400"
+            href="https://webrecorder.net/browsertrix/"
+            ><span class="inline-block">
+              <BrowsertrixLogo
+                class="inline h-[1.1cap] overflow-visible align-baseline"
+                width={null}
+                height={null}
+                aria-label="Browsertrix logo"
+              />&nbsp;Browsertrix
+            </span></a
+          > and <a
+            class="border-b border-b-stone-200 font-semibold text-black transition-colors hover:border-b-stone-400"
+            href="https://webrecorder.net/browsertrix/"
+            ><span class="inline-block">
+              <AWPLogo
+                class="inline h-[1.1cap] overflow-visible align-baseline"
+                width={null}
+                height={null}
+                aria-label="Archive Webpage logo"
+              />&nbsp;Archive Webpage</span
+            ></a
+          >
+          <br />In collaboration with the <a
+            class="border-b border-b-stone-200 font-semibold text-black transition-colors hover:border-b-stone-400"
+            href="https://eotarchive.org/">End of Term Web Archive</a
+          >
+        </p>
+      </header>
     </div>
-  </main>
+    <a
+      class="order-999 -col-start-2 -col-end-1 -m-2 flex flex-col justify-end gap-2 rounded-2xl bg-stone-50 p-4 text-sm text-stone-600 ring-1 ring-stone-100/0 transition hover:ring-stone-100 md:order-0"
+      href="https://webrecorder.net"
+    >
+      A project by
+      <WebrecorderLockup
+        width={null}
+        height={null}
+        class="block w-full max-w-64 text-black"
+      />
+    </a>
+    {collections.map((collection) => <BtrixCollection {...collection.data} />)}
+  </div>
 </Layout>
