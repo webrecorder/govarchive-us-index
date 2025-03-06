@@ -1,0 +1,80 @@
+---
+type Props<Heading extends "h1" | "h2" | "h3" | "h4" | "h5" | "h6"> =
+  | {
+      headingLevel?: Heading;
+      name?: string;
+      src: ImageMetadata;
+      href: string;
+      caption?: string;
+    }
+  | {
+      headingLevel?: Heading;
+      endpoint?: string;
+      org: string;
+      collection: string;
+    };
+
+// partial btrix collection
+type Collection = {
+  name: string;
+  slug: string;
+  caption: string;
+  thumbnail: {
+    name: string;
+    path: string;
+    hash: string;
+    size: 0;
+    mime: string;
+  };
+};
+
+const {
+  headingLevel: Heading = "h3",
+  endpoint = "https://app.browsertrix.com/",
+} = Astro.props;
+
+let { href, src, name, caption } = Astro.props;
+
+if (Astro.props.collection) {
+  const { org, collection } = Astro.props;
+  // fetch collection
+  const res = await fetch(
+    `${endpoint}api/public/orgs/${org}/collections/${collection}`,
+  );
+  const coll = (await res.json()) as Collection;
+
+  href = `${endpoint}explore/${org}/collections/${collection}`;
+  src = {
+    src: coll.thumbnail.path,
+    width: 640,
+    height: 360,
+    format: "jpeg",
+  };
+  name = coll.name;
+  caption = coll.caption;
+}
+---
+
+<a href={href} target="_blank" class="group">
+  <div
+    class="bg-slate-50 relative mb-4 rounded-lg shadow-lg shadow-cyan-700/10 ring-1 ring-stone-900/20 transition group-hover:-translate-y-0.5 group-hover:shadow-cyan-800/50 group-hover:ring-stone-800/20"
+  >
+    <img
+      class="aspect-video w-full rounded-lg object-cover"
+      src={src.src}
+      alt=""
+    />
+  </div>
+  <Heading
+    class="text-base font-semibold leading-tight text-offWhite transition-colors group-hover:text-white"
+  >
+    {name}
+  </Heading>
+  <p
+    class="mt-1.5 text-pretty leading-relaxed text-cyan-100 transition-colors group-hover:text-white"
+  >
+    <slot>
+      {caption}
+    </slot>
+  </p>
+</a>
