@@ -11,11 +11,13 @@ const collections = await getCollection("collections");
 ---
 
 <Layout>
-  <header class="flex flex-col items-start gap-2 px-4 py-8 shadow-xs md:px-16">
+  <header
+    class="mx-2 my-8 inline-flex flex-col items-start gap-2 rounded-2xl bg-stone-50 p-4 pb-2.5 md:mx-12"
+  >
     <h1 class="font-display-wider text-3xl font-bold uppercase">
       US Web Archives
     </h1>
-    <p class="text-sm text-stone-500">
+    <p class="text-sm leading-6 text-pretty text-stone-500">
       Selected archives from the <a
         class="border-b border-b-stone-200 font-semibold text-black"
         href="https://app.browsertrix.com/explore/usgov-archive"
@@ -27,8 +29,9 @@ const collections = await getCollection("collections");
             aria-label="Webrecorder logo"
           /> Webrecorder</span
         > US Government Web Archive</a
-      >
-      with <a
+      >.
+      <br />
+      Crawled with <a
         class="border-b border-b-stone-200 font-semibold text-black"
         href="https://webrecorder.net/browsertrix/"
         ><span class="inline-block">
@@ -51,9 +54,7 @@ const collections = await getCollection("collections");
           />&nbsp;Archive Webpage</span
         ></a
       >.
-    </p>
-    <p class="text-sm text-stone-500">
-      Crawled in collaboration with the <a
+      <br />In collaboration with the <a
         class="border-b border-b-stone-200 font-semibold text-black"
         href="https://eotarchive.org/">End of Term Web Archive</a
       >.
