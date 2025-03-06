@@ -9,4 +9,8 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: "https://govarchive.us/",
+  experimental: {
+    contentIntellisense: true,
+    svg: true,
+  },
 });
