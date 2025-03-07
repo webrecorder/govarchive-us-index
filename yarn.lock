@@ -648,10 +648,10 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.3.0.tgz#d06bbb384ebcf6c505fde1c3d0ed4ddffe0aaff8"
   integrity sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==
 
-"@webrecorder/hickory@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@webrecorder/hickory/-/hickory-0.2.1.tgz#b510dd32ec6949ecb9bd426ec4faa2ed30846427"
-  integrity sha512-ajNUXXClLfdgpHy6C/BLpR7y0aKBURLGW4fynagsxBr6Tqj/9XwA991lM35PYUjuS9YADjzkC5s99ib66YNM1A==
+"@webrecorder/hickory@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@webrecorder/hickory/-/hickory-0.3.1.tgz#263a62348b865976564b6e0e700e4f4f27b9ef67"
+  integrity sha512-BVJveqUe9Tru3QqKQyve7cASXWSVwdN8Z0Jn+t6zEioGQPkw412FfqMGIra6+SHoUsmjDuUuzqep9uXaTvnXsg==
   dependencies:
     "@iconify/types" "^2.0.0"
 
