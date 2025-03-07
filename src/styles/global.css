@@ -2,6 +2,10 @@
 @import "@webrecorder/hickory/tokens/tailwind.css";
 @import "./fonts";
 
+/* Custom dark mode variant for now — eventually we can re-enable default
+behavior when more of our other products support dark mode. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --default-font-family: "Inter Variable";
   --default-font-feature-settings: "ss04" off, "ss07" on, "ss08" on, "cv10" on;
