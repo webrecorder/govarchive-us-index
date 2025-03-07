@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { bytes, number } from "../helpers/format";
 
 type Props = {
@@ -60,10 +61,13 @@ const delay = `${index * 100}ms`;
   <div
     class="relative mb-4 rounded-lg bg-slate-50 shadow-lg ring-1 shadow-cyan-700/10 ring-stone-900/20 transition group-hover:shadow-cyan-800/20 group-hover:ring-stone-800/20 dark:ring-white/50 dark:group-hover:ring-white"
   >
-    <img
+    <Image
       class="aspect-video w-full rounded-lg object-cover"
       src={src.src}
       alt=""
+      width={src.width}
+      height={src.height}
+      loading="eager"
     />
   </div>
   <h2
