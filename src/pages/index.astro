@@ -8,7 +8,6 @@ import BrowsertrixLogo from "@webrecorder/hickory/icons/browsertrix-icon-color.s
 import AWPLogo from "@webrecorder/hickory/icons/archivewebpage-icon-color.svg";
 
 import { getCollection } from "astro:content";
-import { undefined } from "astro:schema";
 const collections = await getCollection("collections");
 ---
 
@@ -76,6 +75,10 @@ const collections = await getCollection("collections");
         class="block w-full max-w-64 text-black"
       />
     </a>
-    {collections.map((collection) => <BtrixCollection {...collection.data} />)}
+    {
+      collections.map((collection, index) => (
+        <BtrixCollection {...collection.data} index={index + 1} />
+      ))
+    }
   </div>
 </Layout>

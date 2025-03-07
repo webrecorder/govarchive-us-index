@@ -6,6 +6,7 @@ type Props = {
   org: string;
   collection: string;
   url?: string | undefined;
+  index?: number;
 };
 
 // partial btrix collection
@@ -29,6 +30,7 @@ const {
   org,
   collection,
   url,
+  index = 0,
 } = Astro.props;
 
 // fetch collection
@@ -46,12 +48,14 @@ const src = {
 };
 
 const { name, caption, pageCount, totalSize } = coll;
+
+const delay = `${index * 100}ms`;
 ---
 
 <a
   href={href}
   target="_blank"
-  class="group -m-2 rounded-2xl bg-stone-50 p-2 pb-4 ring-1 ring-stone-100/0 transition hover:ring-stone-100"
+  class="group collection -m-2 rounded-2xl bg-stone-50 p-2 pb-4 ring-1 ring-stone-100/0 transition hover:ring-stone-100"
 >
   <div
     class="relative mb-4 rounded-lg bg-slate-50 shadow-lg ring-1 shadow-cyan-700/10 ring-stone-900/20 transition group-hover:shadow-cyan-800/20 group-hover:ring-stone-800/20"
@@ -84,3 +88,19 @@ const { name, caption, pageCount, totalSize } = coll;
     </slot>
   </p>
 </a>
+
+<style define:vars={{ delay }}>
+  @media (prefers-reduced-motion: no-preference) {
+    .collection {
+      animation: blur-in 700ms var(--ease-out) backwards;
+      animation-delay: var(--delay, 0);
+    }
+  }
+  @keyframes blur-in {
+    from {
+      filter: blur(8px);
+      transform: translateX(-2px);
+      opacity: 0;
+    }
+  }
+</style>
