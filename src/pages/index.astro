@@ -1,4 +1,7 @@
 ---
+import bezierEasing from "bezier-easing";
+import { getCollection } from "astro:content";
+
 import BtrixCollection from "../components/BtrixCollection.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -7,8 +10,11 @@ import WebrecorderLockup from "@webrecorder/hickory/icons/brand/webrecorder-lock
 import BrowsertrixLogo from "@webrecorder/hickory/icons/brand/browsertrix-icon-color.svg";
 import AWPLogo from "@webrecorder/hickory/icons/brand/archivewebpage-icon-color.svg";
 
-import { getCollection } from "astro:content";
-const collections = await getCollection("collections");
+let collections = await getCollection("collections");
+
+const ease = bezierEasing(0.4, 0, 1, 1);
+const easeMap = (index: number, min: number, max: number) =>
+  min + ease(index / max) * (max - min);
 ---
 
 <Layout>
@@ -77,7 +83,10 @@ const collections = await getCollection("collections");
     </a>
     {
       collections.map((collection, index) => (
-        <BtrixCollection {...collection.data} index={index + 1} />
+        <BtrixCollection
+          {...collection.data}
+          index={easeMap(index, 1, collections.length)}
+        />
       ))
     }
   </div>
