@@ -21,7 +21,7 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
         with:
-          token: ${{secrets.CI_TOKEN}}
+          #token: ${{secrets.CI_TOKEN}}
           submodules: true
       - name: Install, build, and upload your site
         uses: withastro/action@v3
