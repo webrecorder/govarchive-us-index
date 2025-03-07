@@ -53,13 +53,9 @@ const { name, caption, pageCount, totalSize } = coll;
 const delay = `${index * 100}ms`;
 ---
 
-<a
-  href={href}
-  target="_blank"
-  class="group collection focus:ring-brand-blue -m-2 rounded-2xl bg-stone-50 p-2 pb-4 ring-1 ring-stone-100/0 ring-offset-white hover:ring-stone-100 focus:ring-2 focus:ring-offset-4 focus:outline-none motion-safe:transition dark:bg-stone-800 dark:ring-offset-stone-900 dark:hover:ring-stone-700"
->
+<a href={href} target="_blank" class="card card-link group collection p-2 pb-4">
   <div
-    class="relative mb-4 rounded-lg bg-slate-50 shadow-lg ring-1 shadow-cyan-700/10 ring-stone-900/20 group-hover:shadow-cyan-800/20 group-hover:ring-stone-800/20 motion-safe:transition dark:ring-white/50 dark:group-hover:ring-white"
+    class="relative mb-4 rounded-lg bg-slate-50 shadow-lg ring-1 shadow-cyan-700/10 ring-stone-900/20 group-hover:shadow-cyan-800/20 group-hover:ring-stone-800/20 motion-safe:transition contrast-more:shadow-none contrast-more:ring-black contrast-more:group-hover:ring-black dark:ring-white/50 dark:group-hover:ring-white contrast-more:dark:ring-white dark:contrast-more:group-hover:ring-white"
   >
     <Image
       class="aspect-video w-full rounded-lg object-cover"
@@ -71,12 +67,12 @@ const delay = `${index * 100}ms`;
     />
   </div>
   <h2
-    class="mx-2 text-base leading-tight font-semibold text-stone-700 transition group-hover:text-stone-900 dark:text-stone-100 dark:group-hover:text-white"
+    class="mx-2 text-base leading-tight font-semibold text-stone-700 transition group-hover:text-stone-900 contrast-more:text-black dark:text-stone-100 dark:group-hover:text-white"
   >
     {name}
   </h2>
   <p
-    class="mx-2 mt-1.5 flex gap-2 text-sm text-stone-600 transition group-hover:text-stone-800 dark:text-stone-200 dark:group-hover:text-stone-100"
+    class="mx-2 mt-1.5 flex gap-2 text-sm text-stone-600 transition group-hover:text-stone-800 contrast-more:text-stone-900 dark:text-stone-200 dark:group-hover:text-stone-100"
   >
     {number(pageCount)} pages <span
       class="font-mono font-thin text-stone-300 dark:text-stone-600"
@@ -85,7 +81,7 @@ const delay = `${index * 100}ms`;
     {bytes(totalSize)}
   </p>
   <p
-    class="mx-2 mt-1.5 text-sm leading-relaxed text-pretty text-stone-400 transition group-hover:text-stone-600 dark:group-hover:text-stone-200"
+    class="mx-2 mt-1.5 text-sm leading-relaxed text-pretty text-stone-400 transition group-hover:text-stone-600 contrast-more:text-stone-800 dark:group-hover:text-stone-200 contrast-more:dark:text-stone-50"
   >
     <slot>
       {caption}
@@ -94,7 +90,7 @@ const delay = `${index * 100}ms`;
 </a>
 
 <style define:vars={{ delay }}>
-  @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) and (prefers-contrast: no-preference) {
     .collection {
       animation: blur-in 700ms var(--ease-out) backwards;
       animation-delay: var(--delay, 0);
