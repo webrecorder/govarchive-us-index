@@ -1,5 +1,17 @@
 ---
+import { NODE_ENV } from "astro:env/server";
 import "../styles/global.css";
+
+const absoluteUrl = (url: string) =>
+  NODE_ENV === "production" ? new URL(url, Astro.site) : url;
+
+import ogImageAsset from "@/assets/og.png";
+
+const title = "Webrecorder US Government Web Archive";
+const description =
+  "Selected archives from the Webrecorder US Government Web Archive";
+const ogImage = ogImageAsset.src;
+const ogImageAlt = `A card saying "Webrecorder US Government Web Archive — Selected Archives", and "A project by Webrecorder"`;
 ---
 
 <!doctype html>
@@ -9,7 +21,37 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:image" content={absoluteUrl(ogImage)} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Webrecorder" />
+    <meta property="og:type" content="website" />
+    <!-- Twitter Tags -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site" content="@webrecorder_io" />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:image" content={absoluteUrl(ogImage)} />
+    <meta property="twitter:image:alt" content={ogImageAlt} />
+
+    <meta name="theme-color" content="#4d7c0f" />
+    <script
+      is:inline
+      defer
+      data-domain="webrecorder.net"
+      src="https://p.webrecorder.net/js/script.outbound-links.tagged-events.js"
+    ></script>
+    <script is:inline>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
   </head>
   <body class="dark:bg-stone-900">
     <slot />
