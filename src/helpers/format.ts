@@ -31,3 +31,53 @@ export const bytes = (value: number, options?: Intl.NumberFormatOptions) => {
 
   return numberFormatter.format(valueToFormat);
 };
+
+export const betweenDates = (from: Date, to: Date) => {
+  const shortMonthYearFormatter = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+  });
+  return shortMonthYearFormatter.formatRange(from, to);
+};
+
+/**
+ * This implements the date range the same way as Browsertrix does. However,
+ * I'm sticking with the simpler version above because it includes days, which
+ * is useful for these particular collections because relationships to the
+ * inauguration date are important here. -ESG
+ */
+export const betweenDatesBtrix = (from: Date, to: Date) => {
+  const yearFormatter = new Intl.DateTimeFormat("en-US", { year: "numeric" });
+  const longMonthYearFormatter = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+  });
+  const shortMonthFormatter = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+  });
+  const shortMonthYearFormatter = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+  });
+
+  const earliestYear = yearFormatter.format(from);
+  const latestYear = yearFormatter.format(to);
+
+  let date = "";
+
+  if (earliestYear === latestYear) {
+    const earliestMonth = from.getMonth();
+    const latestMonth = to.getMonth();
+
+    if (earliestMonth === latestMonth) {
+      date = longMonthYearFormatter.format(from);
+    } else {
+      date = `${shortMonthFormatter.format(from)} – ${shortMonthYearFormatter.format(to)}`;
+    }
+  } else {
+    date = `${earliestYear} – ${latestYear} `;
+  }
+
+  return date;
+};
