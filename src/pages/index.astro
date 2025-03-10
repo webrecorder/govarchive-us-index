@@ -21,53 +21,48 @@ const easeMap = (index: number, min: number, max: number) =>
   <div
     class="mt-8 grid gap-8 px-8 pb-16 md:mt-16 md:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:px-16"
   >
-    <div class="col-start-1 -col-end-2 -m-2">
-      <header
-        class="card contrast-more:black:text-white m-0 flex flex-col items-start gap-2 pb-3 text-sm leading-6 text-pretty text-stone-500 has-[a[href]:hover]:ring-stone-100 contrast-more:text-black contrast-more:has-[a[href]:hover]:ring-black md:inline-flex dark:has-[a[href]:hover]:ring-stone-700 contrast-more:dark:text-white contrast-more:dark:has-[a[href]:hover]:ring-white"
-      >
-        <h1>
-          Selected archives from the <a
-            class="link"
-            href="https://app.browsertrix.com/explore/usgov-archive"
-            ><span class="inline-block">
-              <WebrecorderLogo
-                class="me-1 inline h-[1cap] overflow-visible align-baseline"
-                width={null}
-                height={null}
-                aria-label="Webrecorder logo"
-              />Webrecorder</span
-            > US Government Web Archive</a
-          >
-        </h1>
-        <p>
-          Crawled with <a
-            class="link"
-            href="https://webrecorder.net/browsertrix/"
-            ><span class="inline-block">
-              <BrowsertrixLogo
-                class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
-                width={null}
-                height={null}
-                aria-label="Browsertrix logo"
-              />Browsertrix
-            </span></a
-          > and <a class="link" href="https://webrecorder.net/browsertrix/"
-            ><span class="inline-block">
-              <AWPLogo
-                class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
-                width={null}
-                height={null}
-                aria-label="Archive Webpage logo"
-              />Archive Webpage</span
-            ></a
-          >
-          <br />In collaboration with the <a
-            class="link"
-            href="https://eotarchive.org/">End of Term Web Archive</a
-          >
-        </p>
-      </header>
-    </div>
+    <header
+      class="card contrast-more:black:text-white col-start-1 -col-end-2 flex flex-col items-start gap-2 pb-3 text-sm leading-6 text-pretty text-stone-500 has-[a[href]:hover]:ring-stone-100 contrast-more:text-black contrast-more:has-[a[href]:hover]:ring-black md:inline-flex dark:has-[a[href]:hover]:ring-stone-700 contrast-more:dark:text-white contrast-more:dark:has-[a[href]:hover]:ring-white"
+    >
+      <h1>
+        Selected archives from the <a
+          class="link"
+          href="https://app.browsertrix.com/explore/usgov-archive"
+          ><span class="inline-block">
+            <WebrecorderLogo
+              class="me-1 inline h-[1cap] overflow-visible align-baseline"
+              width={null}
+              height={null}
+              aria-label="Webrecorder logo"
+            />Webrecorder</span
+          > US Government Web Archive</a
+        >
+      </h1>
+      <p>
+        Crawled with <a class="link" href="https://webrecorder.net/browsertrix/"
+          ><span class="inline-block">
+            <BrowsertrixLogo
+              class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
+              width={null}
+              height={null}
+              aria-label="Browsertrix logo"
+            />Browsertrix
+          </span></a
+        > and <a class="link" href="https://webrecorder.net/browsertrix/"
+          ><span class="inline-block">
+            <AWPLogo
+              class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
+              width={null}
+              height={null}
+              aria-label="Archive Webpage logo"
+            />Archive Webpage</span
+          ></a
+        ><br class="xl:hidden" /> in collaboration with the <a
+          class="link"
+          href="https://eotarchive.org/">End of Term Web Archive</a
+        >
+      </p>
+    </header>
     <a
       class="card card-link order-9999 -col-start-2 -col-end-1 flex flex-col justify-end gap-2 text-sm md:order-0"
       href="https://webrecorder.net"

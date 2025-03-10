@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import { bytes, number } from "../helpers/format";
 
 import BrowsertrixLogo from "@webrecorder/hickory/icons/brand/browsertrix-icon-solid.svg";
@@ -60,7 +61,7 @@ const delay = `${index * 100}ms`;
   <a
     href={href}
     target="_blank"
-    class="card card-link group block flex-1 p-2 pb-4"
+    class="card card-link group flex flex-1 flex-col p-2 pb-4"
   >
     <div
       class="relative mb-4 rounded-lg bg-slate-50 shadow-lg ring-1 shadow-cyan-700/10 ring-stone-900/20 group-hover:shadow-cyan-800/20 group-hover:ring-stone-800/20 motion-safe:transition contrast-more:shadow-none contrast-more:ring-black contrast-more:group-hover:ring-black dark:ring-white/50 dark:group-hover:ring-white contrast-more:dark:ring-white dark:contrast-more:group-hover:ring-white"
@@ -95,6 +96,15 @@ const delay = `${index * 100}ms`;
         {caption}
       </slot>
     </p>
+    <p class="mx-2 mt-auto flex items-center justify-between pt-3 text-xs">
+      <span
+        >Visit <b
+          class="text-stone-700 contrast-more:text-inherit dark:text-stone-100"
+          >{name}</b
+        ></span
+      >
+      <Icon name="bi:globe2" class="ms-1 size-4 overflow-visible align-[0]" />
+    </p>
   </a>
   <a
     href={btrixHref}
@@ -105,7 +115,8 @@ const delay = `${index * 100}ms`;
         class="text-stone-700 contrast-more:text-inherit dark:text-stone-100"
         >{name}</b
       > on Browsertrix</span
-    ><BrowsertrixLogo
+    >
+    <BrowsertrixLogo
       width={null}
       height={null}
       class="ms-1 size-4 overflow-visible align-[0]"
