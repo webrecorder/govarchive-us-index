@@ -2,6 +2,8 @@
 import bezierEasing from "bezier-easing";
 import { getCollection } from "astro:content";
 
+import * as description from "@/description.md";
+
 import BtrixCollection from "../components/BtrixCollection.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -22,11 +24,12 @@ const easeMap = (index: number, min: number, max: number) =>
     class="mt-8 grid gap-8 px-8 pb-16 md:mt-16 md:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:px-16"
   >
     <header
-      class="card contrast-more:black:text-white col-start-1 -col-end-2 flex flex-col items-start gap-2 pb-3 text-sm leading-6 text-pretty text-stone-500 has-[a[href]:hover]:ring-stone-100 contrast-more:text-black contrast-more:has-[a[href]:hover]:ring-black md:inline-flex dark:has-[a[href]:hover]:ring-stone-700 contrast-more:dark:text-white contrast-more:dark:has-[a[href]:hover]:ring-white"
+      class="[&_a]:link col-start-1 -col-end-2 flex flex-col gap-6 text-sm"
     >
-      <h1>
+      <h1
+        class="card py-2 text-pretty has-[a[href]:hover]:ring-stone-100 contrast-more:has-[a[href]:hover]:ring-black dark:has-[a[href]:hover]:ring-stone-700 contrast-more:dark:text-white contrast-more:dark:has-[a[href]:hover]:ring-white"
+      >
         Selected archives from the <a
-          class="link"
           href="https://app.browsertrix.com/explore/usgov-archive"
           ><span class="inline-block">
             <WebrecorderLogo
@@ -38,30 +41,32 @@ const easeMap = (index: number, min: number, max: number) =>
           > US Government Web Archive</a
         >
       </h1>
-      <p>
-        Crawled with <a class="link" href="https://webrecorder.net/browsertrix/"
-          ><span class="inline-block">
-            <BrowsertrixLogo
-              class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
-              width={null}
-              height={null}
-              aria-label="Browsertrix logo"
-            />Browsertrix
-          </span></a
-        > and <a class="link" href="https://webrecorder.net/browsertrix/"
-          ><span class="inline-block">
-            <AWPLogo
-              class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
-              width={null}
-              height={null}
-              aria-label="Archive Webpage logo"
-            />Archive Webpage</span
-          ></a
-        ><br class="xl:hidden" /> in collaboration with the <a
-          class="link"
-          href="https://eotarchive.org/">End of Term Web Archive</a
-        >
-      </p>
+      <div
+        class="card contrast-more:black:text-white py-3 leading-6 text-pretty text-stone-500 has-[a[href]:hover]:ring-stone-100 contrast-more:text-black contrast-more:has-[a[href]:hover]:ring-black dark:has-[a[href]:hover]:ring-stone-700 contrast-more:dark:text-white contrast-more:dark:has-[a[href]:hover]:ring-white [&_p]:max-w-screen-md [&_p]:not-first-of-type:mt-2"
+      >
+        <description.Content />
+        <p>
+          Crawled with <a href="https://webrecorder.net/browsertrix/"
+            ><span class="inline-block">
+              <BrowsertrixLogo
+                class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
+                width={null}
+                height={null}
+                aria-label="Browsertrix logo"
+              />Browsertrix
+            </span></a
+          > and <a href="https://webrecorder.net/browsertrix/"
+            ><span class="inline-block">
+              <AWPLogo
+                class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
+                width={null}
+                height={null}
+                aria-label="Archive Webpage logo"
+              />Archive Webpage</span
+            ></a
+          >.
+        </p>
+      </div>
     </header>
     <a
       class="card card-link order-9999 -col-start-2 -col-end-1 flex flex-col justify-end gap-2 text-sm md:order-0"
