@@ -67,7 +67,7 @@ const delay = `${index * 100}ms`;
     >
       <Image
         class="aspect-video w-full rounded-lg object-cover"
-        src={src.src}
+        src={`${endpoint}api/public/orgs/${org}/collections/${collection}/thumbnail`}
         alt=""
         width={src.width}
         height={src.height}
