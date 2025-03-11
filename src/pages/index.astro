@@ -40,23 +40,19 @@ const easeMap = (index: number, min: number, max: number) =>
           Crawled and organized with <a
             href="https://webrecorder.net/browsertrix/"
             class="align-[-3px]"
-          >
-            <BrowsertrixLockup
+            ><BrowsertrixLockup
               class="inline h-[1.8cap] overflow-visible align-[-0.07em]"
               width={null}
               height={null}
-              aria-label="Browsertrix"
-            />
+            /><span class="sr-only">Browsertrix</span>
           </a> and <a
             href="https://webrecorder.net/browsertrix/"
             class="align-[-3px]"
-          >
-            <AWPLockup
+            ><AWPLockup
               class="inline h-[1.8cap] overflow-visible align-[-0.07em]"
               width={null}
               height={null}
-              aria-label="Archive Webpage"
-            /></a
+            /><span class="sr-only">Archive Webpage</span></a
           >.
         </p>
       </div>
@@ -69,6 +65,7 @@ const easeMap = (index: number, min: number, max: number) =>
         class="card blur-in card-link flex flex-1 flex-col justify-end gap-2 [--delay:100ms]"
       >
         A project by
+        <span class="sr-only">Webrecorder</span>
         <WebrecorderLockup
           width={null}
           height={null}
@@ -92,7 +89,8 @@ const easeMap = (index: number, min: number, max: number) =>
             aria-label="Learn More"
           />
           <div class="w-full self-end text-balance">
-            Automated browser-based crawling at scale
+            <span class="sr-only">Browsertrix: </span>Automated browser-based
+            crawling at scale
           </div>
         </a>
         <a
@@ -111,7 +109,8 @@ const easeMap = (index: number, min: number, max: number) =>
             aria-label="Learn More"
           />
           <div class="w-full self-end text-balance">
-            Record complex interactions as you browse the web
+            <span class="sr-only">Archive Webpage: </span>Record complex
+            interactions as you browse the web
           </div>
         </a>
       </div>
