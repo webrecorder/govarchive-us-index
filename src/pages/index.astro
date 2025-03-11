@@ -2,13 +2,15 @@
 import bezierEasing from "bezier-easing";
 import { getCollection } from "astro:content";
 
+import * as description from "@/description.md";
+
 import BtrixCollection from "../components/BtrixCollection.astro";
 import Layout from "../layouts/Layout.astro";
 
-import WebrecorderLogo from "@webrecorder/hickory/icons/brand/webrecorder-icon-color.svg";
 import WebrecorderLockup from "@webrecorder/hickory/icons/brand/webrecorder-lockup-color.svg";
-import BrowsertrixLogo from "@webrecorder/hickory/icons/brand/browsertrix-icon-color.svg";
-import AWPLogo from "@webrecorder/hickory/icons/brand/archivewebpage-icon-color.svg";
+import BrowsertrixLockup from "@webrecorder/hickory/icons/brand/browsertrix-lockup-color.svg";
+import AWPLockup from "@webrecorder/hickory/icons/brand/archivewebpage-lockup-color.svg";
+import { Icon } from "astro-icon/components";
 
 let collections = await getCollection("collections");
 
@@ -19,61 +21,100 @@ const easeMap = (index: number, min: number, max: number) =>
 
 <Layout>
   <div
-    class="mt-8 grid gap-8 px-8 pb-16 md:mt-16 md:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:px-16"
+    class="mt-8 grid gap-8 px-6 pb-16 sm:px-8 md:mt-16 md:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:px-16"
   >
-    <header
-      class="card contrast-more:black:text-white col-start-1 -col-end-2 flex flex-col items-start gap-2 pb-3 text-sm leading-6 text-pretty text-stone-500 has-[a[href]:hover]:ring-stone-100 contrast-more:text-black contrast-more:has-[a[href]:hover]:ring-black md:inline-flex dark:has-[a[href]:hover]:ring-stone-700 contrast-more:dark:text-white contrast-more:dark:has-[a[href]:hover]:ring-white"
-    >
-      <h1>
+    <header class="[&_a]:link contents">
+      <h1
+        class="card py-2 text-lg font-medium text-pretty has-[a[href]:hover]:ring-stone-100 contrast-more:has-[a[href]:hover]:ring-black md:col-span-full lg:text-xl dark:has-[a[href]:hover]:ring-stone-700 contrast-more:dark:text-white contrast-more:dark:has-[a[href]:hover]:ring-white"
+      >
         Selected archives from the <a
-          class="link"
           href="https://app.browsertrix.com/explore/usgov-archive"
-          ><span class="inline-block">
-            <WebrecorderLogo
-              class="me-1 inline h-[1cap] overflow-visible align-baseline"
-              width={null}
-              height={null}
-              aria-label="Webrecorder logo"
-            />Webrecorder</span
-          > US Government Web Archive</a
+          >Webrecorder US Government Web Archive</a
         >
       </h1>
-      <p>
-        Crawled with <a class="link" href="https://webrecorder.net/browsertrix/"
-          ><span class="inline-block">
-            <BrowsertrixLogo
-              class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
+      <div
+        class="blur-in card contrast-more:black:text-white col-start-1 py-3 text-sm leading-6 text-pretty text-stone-500 [--delay:50ms] has-[a[href]:hover]:ring-stone-100 contrast-more:text-black contrast-more:has-[a[href]:hover]:ring-black lg:-col-end-2 2xl:-col-end-3 dark:has-[a[href]:hover]:ring-stone-700 contrast-more:dark:text-white contrast-more:dark:has-[a[href]:hover]:ring-white [&_p]:max-w-screen-md [&_p]:not-first-of-type:mt-2"
+      >
+        <description.Content />
+        <p>
+          Crawled and organized with <a
+            href="https://webrecorder.net/browsertrix/"
+            class="align-[-3px]"
+            ><BrowsertrixLockup
+              class="inline h-[1.8cap] overflow-visible align-[-0.07em]"
               width={null}
               height={null}
-              aria-label="Browsertrix logo"
-            />Browsertrix
-          </span></a
-        > and <a class="link" href="https://webrecorder.net/browsertrix/"
-          ><span class="inline-block">
-            <AWPLogo
-              class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
+            /><span class="sr-only">Browsertrix</span>
+          </a> and <a
+            href="https://webrecorder.net/browsertrix/"
+            class="align-[-3px]"
+            ><AWPLockup
+              class="inline h-[1.8cap] overflow-visible align-[-0.07em]"
               width={null}
               height={null}
-              aria-label="Archive Webpage logo"
-            />Archive Webpage</span
-          ></a
-        ><br class="xl:hidden" /> in collaboration with the <a
-          class="link"
-          href="https://eotarchive.org/">End of Term Web Archive</a
-        >
-      </p>
+            /><span class="sr-only">Archive Webpage</span></a
+          >.
+        </p>
+      </div>
     </header>
-    <a
-      class="card card-link order-9999 -col-start-2 -col-end-1 flex flex-col justify-end gap-2 text-sm md:order-0"
-      href="https://webrecorder.net"
+    <div
+      class="order-9999 flex flex-col gap-6 text-sm md:order-0 2xl:col-span-2"
     >
-      A project by
-      <WebrecorderLockup
-        width={null}
-        height={null}
-        class="block w-full max-w-64 text-black dark:text-stone-50"
-      />
-    </a>
+      <a
+        href="https://webrecorder.net"
+        class="card blur-in card-link flex flex-1 flex-col justify-end gap-2 [--delay:100ms]"
+      >
+        A project by
+        <span class="sr-only">Webrecorder</span>
+        <WebrecorderLockup
+          width={null}
+          height={null}
+          class="block w-full max-w-64 text-black dark:text-stone-50"
+        />
+      </a>
+      <div class="grid gap-6 text-xs sm:max-md:grid-cols-2 2xl:grid-cols-2">
+        <a
+          href="https://webrecorder.net/browsertrix/"
+          class="card-sm blur-in card-link flex flex-wrap items-start gap-1.5 pt-3.5 pb-3 [--delay:200ms]"
+          ><BrowsertrixLockup
+            class=""
+            width={null}
+            height={null}
+            aria-label="Browsertrix"
+            class="max-h-5 text-black dark:text-white"
+          />
+          <Icon
+            class="-mt-1.5 -mr-2 ml-auto inline size-4"
+            name="bi:arrow-up-right-circle"
+            aria-label="Learn More"
+          />
+          <div class="w-full self-end text-balance">
+            <span class="sr-only">Browsertrix: </span>Automated browser-based
+            crawling at scale
+          </div>
+        </a>
+        <a
+          href="https://webrecorder.net/archivewebpage/"
+          class="card-sm blur-in card-link flex flex-wrap items-start gap-1.5 pt-3.5 pb-3 [--delay:300ms]"
+          ><AWPLockup
+            class=""
+            width={null}
+            height={null}
+            aria-label="Archive Webpage"
+            class="max-h-5 text-black dark:text-white"
+          />
+          <Icon
+            class="-mt-1.5 -mr-2 ml-auto inline size-4"
+            name="bi:arrow-up-right-circle"
+            aria-label="Learn More"
+          />
+          <div class="w-full self-end text-balance">
+            <span class="sr-only">Archive Webpage: </span>Record complex
+            interactions as you browse the web
+          </div>
+        </a>
+      </div>
+    </div>
     {
       collections.map((collection, index) => (
         <BtrixCollection

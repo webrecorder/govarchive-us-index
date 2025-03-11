@@ -59,14 +59,14 @@ const { name, caption, pageCount, totalSize, dateEarliest, dateLatest } = coll;
 const delay = `${index * 100}ms`;
 ---
 
-<div class="collection flex flex-col">
+<div class="blur-in flex flex-col">
   <a
     href={href}
     target="_blank"
-    class="card card-link group flex flex-1 flex-col p-2 pb-4"
+    class="card card-link group flex flex-1 flex-col bg-cyan-50/50 p-2 pb-4 hover:ring-cyan-100 contrast-more:hover:ring-cyan-600 dark:bg-cyan-800/50"
   >
     <div
-      class="relative mb-4 rounded-lg bg-slate-50 shadow-lg ring-1 shadow-cyan-700/10 ring-stone-900/20 group-hover:shadow-cyan-800/20 group-hover:ring-stone-800/20 motion-safe:transition contrast-more:shadow-none contrast-more:ring-black contrast-more:group-hover:ring-black dark:ring-white/50 dark:group-hover:ring-white contrast-more:dark:ring-white dark:contrast-more:group-hover:ring-white"
+      class="relative mb-4 rounded-lg bg-slate-50 shadow-lg ring-1 shadow-cyan-700/10 ring-cyan-200/50 group-hover:shadow-cyan-600/20 group-hover:ring-cyan-200 motion-safe:transition contrast-more:shadow-none contrast-more:ring-cyan-700 contrast-more:group-hover:ring-black dark:ring-white/50 dark:group-hover:ring-white contrast-more:dark:ring-white dark:contrast-more:group-hover:ring-white"
     >
       <Image
         class="aspect-video w-full rounded-lg object-cover"
@@ -83,7 +83,7 @@ const delay = `${index * 100}ms`;
       {name}
     </h2>
     <p
-      class="mx-2 mt-1.5 flex flex-wrap gap-x-1.5 gap-y-0.5 text-xs text-balance text-stone-600 transition group-hover:text-stone-800 contrast-more:text-stone-900 dark:text-stone-200 dark:group-hover:text-stone-100"
+      class="mx-2 mt-1.5 flex flex-wrap gap-x-1.5 gap-y-0.5 text-xs text-balance text-stone-600 transition group-hover:text-stone-800 contrast-more:text-stone-900 dark:text-stone-200 dark:group-hover:text-stone-100 contrast-more:dark:text-white"
     >
       {betweenDates(new Date(dateEarliest!), new Date(dateLatest!))}
       <span
@@ -98,16 +98,18 @@ const delay = `${index * 100}ms`;
     </p>
 
     <p
-      class="mx-2 mt-1.5 text-sm leading-relaxed text-pretty text-stone-400 transition group-hover:text-stone-600 contrast-more:text-stone-800 dark:group-hover:text-stone-200 contrast-more:dark:text-stone-50"
+      class="mx-2 mt-1.5 text-sm leading-relaxed text-pretty text-cyan-900/60 transition group-hover:text-stone-600 contrast-more:text-stone-800 dark:text-cyan-50/60 dark:group-hover:text-cyan-50/70 contrast-more:dark:text-stone-50"
     >
       <slot>
         {caption}
       </slot>
     </p>
-    <p class="mx-2 mt-auto flex items-center justify-between pt-3 text-xs">
+    <p
+      class="mx-2 mt-auto flex items-center justify-between pt-3 text-xs text-cyan-500 contrast-more:text-inherit"
+    >
       <span
         >Visit <b
-          class="text-stone-700 contrast-more:text-inherit dark:text-stone-100"
+          class="text-cyan-600 contrast-more:text-inherit dark:text-stone-100"
           >{name}</b
         ></span
       >
@@ -117,10 +119,10 @@ const delay = `${index * 100}ms`;
   <a
     href={btrixHref}
     target="_blank"
-    class="card-sm card-link mt-4 flex items-center justify-between text-xs text-balance"
+    class="card-sm card-link mt-4 flex items-center justify-between bg-lime-50/50 text-xs text-balance text-lime-500 hover:text-lime-600 hover:ring-lime-100 contrast-more:text-inherit contrast-more:hover:ring-lime-600 dark:bg-lime-800/50 contrast-more:dark:text-white contrast-more:dark:hover:text-white"
     ><span
       >View <b
-        class="text-stone-700 contrast-more:text-inherit dark:text-stone-100"
+        class="text-lime-600 contrast-more:text-inherit dark:text-stone-100"
         >{name}</b
       > on Browsertrix</span
     >
@@ -132,18 +134,4 @@ const delay = `${index * 100}ms`;
   >
 </div>
 
-<style define:vars={{ delay }}>
-  @media (prefers-reduced-motion: no-preference) and (prefers-contrast: no-preference) {
-    .collection {
-      animation: blur-in 700ms var(--ease-out) backwards;
-      animation-delay: var(--delay, 0);
-    }
-  }
-  @keyframes blur-in {
-    from {
-      filter: blur(8px);
-      transform: translateX(-2px);
-      opacity: 0;
-    }
-  }
-</style>
+<style define:vars={{ delay }}></style>
