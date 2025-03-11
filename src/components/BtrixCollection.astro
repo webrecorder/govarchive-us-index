@@ -59,7 +59,7 @@ const { name, caption, pageCount, totalSize, dateEarliest, dateLatest } = coll;
 const delay = `${index * 100}ms`;
 ---
 
-<div class="collection flex flex-col">
+<div class="blur-in flex flex-col">
   <a
     href={href}
     target="_blank"
@@ -132,18 +132,4 @@ const delay = `${index * 100}ms`;
   >
 </div>
 
-<style define:vars={{ delay }}>
-  @media (prefers-reduced-motion: no-preference) and (prefers-contrast: no-preference) {
-    .collection {
-      animation: blur-in 700ms var(--ease-out) backwards;
-      animation-delay: var(--delay, 0);
-    }
-  }
-  @keyframes blur-in {
-    from {
-      filter: blur(8px);
-      transform: translateX(-2px);
-      opacity: 0;
-    }
-  }
-</style>
+<style define:vars={{ delay }}></style>

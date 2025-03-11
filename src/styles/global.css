@@ -33,9 +33,23 @@ behavior when more of our other products support dark mode. */
 }
 
 @utility card-link {
-  @apply focus:ring-brand-blue contrast-more:hover:ring-brand-blue contrast-more:dark:hover:ring-brand-blue ring-offset-white hover:ring-stone-100 focus:ring-2 focus:ring-offset-4 focus:outline-none contrast-more:hover:ring-4 contrast-more:focus:ring-4 dark:ring-offset-stone-900 dark:hover:ring-stone-700;
+  @apply focus:ring-brand-blue contrast-more:hover:ring-brand-blue contrast-more:dark:hover:ring-brand-blue ring-offset-white hover:text-stone-800 hover:ring-stone-100 focus:ring-2 focus:ring-offset-4 focus:outline-none contrast-more:hover:ring-4 contrast-more:focus:ring-4 dark:ring-offset-stone-900 dark:hover:text-stone-100 dark:hover:ring-stone-700;
 }
 
 @utility link {
   @apply focus:ring-brand-blue border-b border-b-stone-200 font-semibold text-black ring-offset-stone-50 hover:border-b-stone-400 focus:ring-2 focus:ring-offset-2 focus:outline-none motion-safe:transition contrast-more:transition-none contrast-more:hover:border-b-black dark:border-b-stone-600 dark:text-stone-100 dark:ring-offset-stone-800 dark:hover:border-b-stone-400 dark:hover:text-white contrast-more:dark:hover:border-b-white;
+}
+
+@utility blur-in {
+  @media (prefers-reduced-motion: no-preference) and (prefers-contrast: no-preference) {
+    animation: blur-in 700ms var(--ease-out) backwards;
+    animation-delay: var(--delay, 0);
+  }
+}
+@keyframes blur-in {
+  from {
+    filter: blur(8px);
+    transform: translateX(-2px);
+    opacity: 0;
+  }
 }
