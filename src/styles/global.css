@@ -19,6 +19,9 @@ behavior when more of our other products support dark mode. */
   --font-display-wider: Konsole, "Inter Variable", system-ui, sans-serif;
   --font-display-wider--font-variation-settings: "wdth" 137;
 
+  --font-display-product: Konsole, "Inter Variable", system-ui, sans-serif;
+  --font-display-product--font-variation-settings: "wdth" 87, "wght" 800;
+
   --font-mono:
     Recursive, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", monospace;

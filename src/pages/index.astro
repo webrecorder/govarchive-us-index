@@ -9,9 +9,7 @@ import Layout from "../layouts/Layout.astro";
 
 import WebrecorderLogo from "@webrecorder/hickory/icons/brand/webrecorder-icon-color.svg";
 import WebrecorderLockup from "@webrecorder/hickory/icons/brand/webrecorder-lockup-color.svg";
-import BrowsertrixLogo from "@webrecorder/hickory/icons/brand/browsertrix-icon-color.svg";
 import BrowsertrixLockup from "@webrecorder/hickory/icons/brand/browsertrix-lockup-color.svg";
-import AWPLogo from "@webrecorder/hickory/icons/brand/archivewebpage-icon-color.svg";
 import AWPLockup from "@webrecorder/hickory/icons/brand/archivewebpage-lockup-color.svg";
 import { Icon } from "astro-icon/components";
 
@@ -49,23 +47,24 @@ const easeMap = (index: number, min: number, max: number) =>
         <p>
           Crawled and organized with <a
             href="https://webrecorder.net/browsertrix/"
-            ><span class="inline-block">
-              <BrowsertrixLogo
-                class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
-                width={null}
-                height={null}
-                aria-label="Browsertrix logo"
-              />Browsertrix
-            </span></a
-          > and <a href="https://webrecorder.net/browsertrix/"
-            ><span class="inline-block">
-              <AWPLogo
-                class="me-1 inline h-[1.1cap] overflow-visible align-baseline"
-                width={null}
-                height={null}
-                aria-label="Archive Webpage logo"
-              />Archive Webpage</span
-            ></a
+            class="align-[-3px]"
+          >
+            <BrowsertrixLockup
+              class="inline h-[1.8cap] overflow-visible align-[-0.07em]"
+              width={null}
+              height={null}
+              aria-label="Browsertrix"
+            />
+          </a> and <a
+            href="https://webrecorder.net/browsertrix/"
+            class="align-[-3px]"
+          >
+            <AWPLockup
+              class="inline h-[1.8cap] overflow-visible align-[-0.07em]"
+              width={null}
+              height={null}
+              aria-label="Archive Webpage"
+            /></a
           >.
         </p>
       </div>
