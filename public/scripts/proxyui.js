@@ -119,7 +119,7 @@ class Ye extends Ge{}Ye.directiveName="unsafeSVG",Ye.resultType=2;const Qe=Je(Ye
         margin: 0;
         padding: 0;
         width: 100%;
-        height: 100%;
+        height: auto !important;
         z-index: 1000000000;
       }
       .banner {
