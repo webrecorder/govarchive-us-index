@@ -2,10 +2,10 @@
   org: usgov-archive
   collection: sea-level-change
   url: https://sealevel.globalchange.govarchive.us/
-- id: globalchange
+- id: epa
   org: usgov-archive
-  collection: global-change-research-program
-  url: https://globalchange.govarchive.us/
+  collection: epa
+  url: https://epa.govarchive.us/
 - id: usaid
   org: usgov-archive
   collection: usaid
@@ -14,3 +14,6 @@
   org: usgov-archive
   collection: cdc
   url: https://cdc.govarchive.us/
+#- id: globalchange
+#  collection: global-change-research-program
+#  url: https://globalchange.govarchive.us/
