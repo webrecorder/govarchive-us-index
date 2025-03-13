@@ -126,7 +126,7 @@ class Ye extends Ge{}Ye.directiveName="unsafeSVG",Ye.resultType=2;const Qe=Je(Ye
         width: 100%;
         background: linear-gradient(0deg, #3a5f09 0%, #4d7c0f 100%);
         font-weight: 500;
-        padding: 0.25rem 1rem 0.25rem 1rem;
+        padding: 0.25rem 0.75rem 0.25rem 1rem;
         display: flex;
         gap: 1rem;
         align-content: center;
@@ -139,8 +139,19 @@ class Ye extends Ge{}Ye.directiveName="unsafeSVG",Ye.resultType=2;const Qe=Je(Ye
         color: white;
         background-color: transparent;
         border: 0px;
-        margin-left: auto;
         cursor: pointer;
+        margin-right: 0.75rem;
+      }
+      .x-button {
+        color: white;
+        background-color: transparent;
+        border: 0px;
+        cursor: pointer;
+      }
+      .controls {
+        margin-left: auto;
+        display: flex;
+        flex-direction: row;
       }
       .banner-top-line {
         display: flex;
@@ -242,23 +253,42 @@ class Ye extends Ge{}Ye.directiveName="unsafeSVG",Ye.resultType=2;const Qe=Je(Ye
           </summary>
           ${this.renderExpanded()}
         </details>
-        <button
-          class="refresh-button narrow is-borderless"
-          id="refresh"
-          @click="${this.fullReload}"
-          title="Full Reload"
-          aria-label="Full Reload"
-        >
-          <span class="icon is-small">
-            <span
-              style="width: 1.1em; height: 1.1em;"
-              class="has-text-grey"
-              aria-hidden="true"
-            >
-              ${Qe('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">\n  <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>\n  <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>\n</svg>')}
+        <div class="controls">
+          <button
+            class="refresh-button narrow is-borderless"
+            id="refresh"
+            @click="${this.fullReload}"
+            title="Full Reload"
+            aria-label="Full Reload"
+          >
+            <span class="icon is-small">
+              <span
+                style="width: 1.1em; height: 1.1em;"
+                class="has-text-grey"
+                aria-hidden="true"
+              >
+                ${Qe('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">\n  <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>\n  <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>\n</svg>')}
+              </span>
             </span>
-          </span>
-        </button>
+          </button>
+          <button
+            class="x-button narrow is-borderless"
+            id="close"
+            @click="${this.closeBanner}"
+            title="Close Banner"
+            aria-label="Close Banner"
+          >
+            <span class="icon is-small">
+              <span
+                style="width: 1.1em; height: 1.1em;"
+                class="has-text-grey"
+                aria-hidden="true"
+              >
+                ${Qe('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">\n  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>\n</svg>')}
+              </span>
+            </span>
+          </button>
+        </div>
       </header>
     `}renderExpanded(){return J` <div
       class="details-flexcontainer"
@@ -281,7 +311,7 @@ class Ye extends Ge{}Ye.directiveName="unsafeSVG",Ye.resultType=2;const Qe=Je(Ye
           </div>
         </div>
       </div>
-    </div>`}fullReload(){return e(this,void 0,void 0,(function*(){if(200!==(yield fetch("https://wab.ac/api/c/proxyreplay?reload=1",{method:"DELETE"})).status)return!1;if(navigator.serviceWorker.controller){const t=yield navigator.serviceWorker.getRegistration();yield null==t?void 0:t.unregister()}return window.location.reload(),!1}))}static addBanner(t="rwp-web-archive-banner",e){if(self.top!==top)return;!function(){const t=document.createElement("script");t.src="https://wab.ac/proxy/https://p.webrecorder.net/js/script.outbound-links.js",t.defer=!0,t.dataset.domain="govarchive.us",document.head.appendChild(t)}(),customElements.define(t,e);const n=document.createElement(t);if(self.__wbinfo){const t=self.__wbinfo;n.timestamp=t.timestamp||"",n.origin=new URL(t.url).origin,n.collName=t.collName||localStorage.getItem("__wb_collName")||"",n.collUrl=t.collUrl||localStorage.getItem("__wb_collUrl")||""}const o=document.querySelector("html");o&&(o.style.marginTop="37.5px"),document.addEventListener("DOMContentLoaded",(()=>{document.body.appendChild(n),setInterval((()=>{document.querySelector(t)||document.body.appendChild(n)}),1e3)}))}}en=new WeakMap,t([Fe()],nn.prototype,"date",void 0),t([Ve({type:String})],nn.prototype,"timestamp",void 0),t([Ve({type:String})],nn.prototype,"origin",void 0),t([Ve({type:String})],nn.prototype,"collName",void 0),t([Ve({type:String})],nn.prototype,"collUrl",void 0),t([
+    </div>`}fullReload(){return e(this,void 0,void 0,(function*(){if(200!==(yield fetch("https://wab.ac/api/c/proxyreplay?reload=1",{method:"DELETE"})).status)return!1;if(navigator.serviceWorker.controller){const t=yield navigator.serviceWorker.getRegistration();yield null==t?void 0:t.unregister()}return window.location.reload(),!1}))}closeBanner(){this.style.display="none"}static addBanner(t="rwp-web-archive-banner",e){if(self.top!==self)return;!function(){const t=document.createElement("script");t.src="https://wab.ac/proxy/https://p.webrecorder.net/js/script.outbound-links.js",t.defer=!0,t.dataset.domain="govarchive.us",document.head.appendChild(t)}(),customElements.define(t,e);const n=document.createElement(t);if(self.__wbinfo){const t=self.__wbinfo;n.timestamp=t.timestamp||"",n.origin=new URL(t.url).origin,n.collName=t.collName||localStorage.getItem("__wb_collName")||"",n.collUrl=t.collUrl||localStorage.getItem("__wb_collUrl")||""}const o=document.querySelector("html");o&&(o.style.marginTop="37.5px"),document.addEventListener("DOMContentLoaded",(()=>{document.body.appendChild(n),setInterval((()=>{document.querySelector(t)||document.body.appendChild(n)}),1e3)}))}}en=new WeakMap,t([Fe()],nn.prototype,"date",void 0),t([Ve({type:String})],nn.prototype,"timestamp",void 0),t([Ve({type:String})],nn.prototype,"origin",void 0),t([Ve({type:String})],nn.prototype,"collName",void 0),t([Ve({type:String})],nn.prototype,"collUrl",void 0),t([
 /**
  * @license
  * Copyright 2017 Google LLC
