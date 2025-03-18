@@ -1,19 +1,39 @@
 - id: sealevel
   org: usgov-archive
   collection: sea-level-change
-  url: https://sealevel.globalchange.govarchive.us/
+  url: https://sealevel-globalchange.govarchive.us/
+
 - id: epa
   org: usgov-archive
   collection: epa
   url: https://epa.govarchive.us/
+
 - id: usaid
   org: usgov-archive
   collection: usaid
   url: https://usaid.govarchive.us/
+
 - id: cdc
   org: usgov-archive
   collection: cdc
   url: https://cdc.govarchive.us/
-#- id: globalchange
-#  collection: global-change-research-program
-#  url: https://globalchange.govarchive.us/
+
+- id: fema
+  org: usgov-archive
+  collection: fema
+  url: https://fema.govarchive.us/
+
+- id: globalchange
+  org: usgov-archive
+  collection: global-change-research-program
+  url: https://globalchange.govarchive.us/
+
+- id: ed
+  org: usgov-archive
+  collection: department-of-education
+  url: https://ed.govarchive.us/
+
+- id: climate
+  org: usgov-archive
+  collection: climate-gov-dashboard
+  url: https://climate.govarchive.us/
