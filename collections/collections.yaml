@@ -37,3 +37,8 @@
   org: usgov-archive
   collection: climate-gov-dashboard
   url: https://climate.govarchive.us/
+
+- id: imls
+  org: usgov-archive
+  collection: imls
+  url: https://imls.govarchive.us/
