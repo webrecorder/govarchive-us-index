@@ -42,3 +42,8 @@
   org: usgov-archive
   collection: imls
   url: https://imls.govarchive.us/
+
+- id: covid
+  org: usgov-archive
+  collection: covid-gov
+  url: https://covid.govarchive.us/
